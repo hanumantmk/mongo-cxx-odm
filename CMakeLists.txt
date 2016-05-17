@@ -18,7 +18,7 @@ if(POLICY CMP0025)
   cmake_policy(SET CMP0025 NEW)
 endif()
 
-project(MONGO_CXX_DRIVER LANGUAGES CXX)
+project(MONGO_CXX_ODM LANGUAGES CXX)
 
 if(CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
   if(CMAKE_CXX_COMPILER_VERSION VERSION_LESS "4.8.2")
@@ -73,11 +73,6 @@ if(NOT CMAKE_BUILD_TYPE)
 endif()
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
-
-add_custom_target(docs
-    doxygen ${CMAKE_CURRENT_SOURCE_DIR}/Doxyfile
-    VERBATIM
-)
 
 add_custom_target(format
     python ${CMAKE_SOURCE_DIR}/etc/clang_format.py format
